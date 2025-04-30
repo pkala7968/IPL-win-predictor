@@ -41,7 +41,7 @@ The Flask app provides an interactive interface where users can input match deta
 
 ## 🛠️ Technologies Used
 
-- **Python 3.7+**
+- **Python 3.9+**
 - **Flask** – for web framework  
 - **Scikit-learn** – machine learning  
 - **Pandas, NumPy** – data processing  
