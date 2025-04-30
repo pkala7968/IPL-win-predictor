@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Venue mapping for standardization
+# Venue mapping 
 venue_mapping = {
     "Arun Jaitley Stadium, Delhi": "Arun Jaitley Stadium",
     "Brabourne Stadium, Mumbai": "Brabourne Stadium",
