@@ -29,7 +29,7 @@ venue_mapping = {
 }
 
 # Load your matches data
-matches = pd.read_csv('IPL data (2008-2024)\matches.csv')
+matches = pd.read_csv('IPL data (2008-2024)/matches.csv')
 
 # Standardize venue names
 matches['venue_std'] = matches['venue'].replace(venue_mapping).str.strip()
