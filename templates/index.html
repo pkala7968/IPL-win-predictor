@@ -78,10 +78,10 @@
 <body>
     <div class="container">
         <h1>IPL Match Predictor</h1>
-        <form id="predictionForm">
+        <form action="/predict" method="post">
             <div class="form-group">
                 <label for="team1">Team 1:</label>
-                <select id="team1" name="team1" required>
+                <select name="team1" id="team1" required>
                     {% for team in teams %}
                         <option value="{{ team }}">{{ team }}</option>
                     {% endfor %}
@@ -89,7 +89,7 @@
             </div>
             <div class="form-group">
                 <label for="team2">Team 2:</label>
-                <select id="team2" name="team2" required>
+                <select name="team2" id="team2" required>
                     {% for team in teams %}
                         <option value="{{ team }}">{{ team }}</option>
                     {% endfor %}
@@ -97,7 +97,7 @@
             </div>
             <div class="form-group">
                 <label for="venue">Venue:</label>
-                <select id="venue" name="venue" required>
+                <select name="venue" id="venue" required>
                     {% for venue in venues %}
                         <option value="{{ venue }}">{{ venue }}</option>
                     {% endfor %}
@@ -105,66 +105,55 @@
             </div>
             <div class="form-group">
                 <label for="toss_winner">Toss Winner:</label>
-                <select id="toss_winner" name="toss_winner" required></select>
+                <select name="toss_winner" id="toss_winner" required>
+                    <!-- Options will be set by JavaScript -->
+                </select>
             </div>
             <div class="form-group">
                 <label for="toss_decision">Toss Decision:</label>
-                <select id="toss_decision" name="toss_decision" required>
+                <select name="toss_decision" id="toss_decision" required>
                     {% for decision in toss_decisions %}
                         <option value="{{ decision }}">{{ decision }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group">
-                <label for="team1_avg_runs_last_5">Team 1 Avg Runs (Last 5 Matches):</label>
-                <input type="number" id="team1_avg_runs_last_5" name="team1_avg_runs_last_5" required>
-            </div>
-            <div class="form-group">
-                <label for="team2_avg_runs_last_5">Team 2 Avg Runs (Last 5 Matches):</label>
-                <input type="number" id="team2_avg_runs_last_5" name="team2_avg_runs_last_5" required>
-            </div>
-            <button type="submit">Predict Winner</button>
+            <button type="submit">Predict Match Winner</button>
         </form>
-        
-        <h2>Prediction Result:</h2>
-        <p id="predictionResult"></p>
     </div>
-
     <script>
-        function updateTossWinnerDropdown() {
-            const team1 = document.getElementById("team1").value;
-            const team2 = document.getElementById("team2").value;
-            const tossWinnerDropdown = document.getElementById("toss_winner");
+        
+        //const teamslist = {{ teams | tojson }};
+        const team1Select = document.getElementById('team1');
+        const team2Select = document.getElementById('team2');
+        const tossWinnerSelect = document.getElementById('toss_winner');
 
-            tossWinnerDropdown.innerHTML = "";
+        function updateTossWinnerOptions() {
+            const team1 = team1Select.value;
+            const team2 = team2Select.value;
+            tossWinnerSelect.innerHTML = '';
 
-            const option1 = document.createElement("option");
-            option1.value = team1;
-            option1.textContent = team1;
-            tossWinnerDropdown.appendChild(option1);
-
-            const option2 = document.createElement("option");
-            option2.value = team2;
-            option2.textContent = team2;
-            tossWinnerDropdown.appendChild(option2);
+            let options = [];
+            if (team1 && team2) {
+                if (team1 !== team2) {
+                    options = [team1, team2];
+                } else {
+                    options = [team1];
+                }
+            }
+            options.forEach(team => {
+                const opt = document.createElement('option');
+                opt.value = team;
+                opt.textContent = team;
+                tossWinnerSelect.appendChild(opt);
+            });
         }
 
-        document.getElementById("team1").addEventListener("change", updateTossWinnerDropdown);
-        document.getElementById("team2").addEventListener("change", updateTossWinnerDropdown);
-        updateTossWinnerDropdown();
+        // Initialize on page load
+        updateTossWinnerOptions();
 
-        document.getElementById("predictionForm").addEventListener("submit", async function (event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-            const response = await fetch("/predict", {
-                method: "POST",
-                body: formData,
-            });
-
-            const result = await response.json();
-            document.getElementById("predictionResult").textContent = `Predicted Winner: ${result.predicted_winner}`;
-        });
+        // Update when either team selection changes
+        team1Select.addEventListener('change', updateTossWinnerOptions);
+        team2Select.addEventListener('change', updateTossWinnerOptions);
     </script>
 </body>
 </html>
