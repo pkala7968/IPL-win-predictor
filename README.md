@@ -62,7 +62,7 @@ The Flask app provides an interactive interface where users can input match deta
 1. **Clone the Repository**
 ```bash
 git clone https://github.com/pkala7968/ipl-win-predictor.git
-cd ipl-match-prediction
+cd ipl-win-predictor
 ```
 
 2. **Create a Virtual Environment:**
