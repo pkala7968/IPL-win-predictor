@@ -1,6 +1,6 @@
-# IPL Match Prediction Project
+# 🏏 IPL Match Prediction Project
 
-This project is a Flask-based web application that predicts the winner of an IPL (Indian Premier League) cricket match based on various input features such as teams, venue, toss winner, toss decision, and average runs scored by each team in their last 5 matches.
+This project predicts the winner of an Indian Premier League (IPL) match using machine learning models trained on historical data from 2008 to 2024. It includes a Jupyter notebook for model development and a Flask-based web application for real-time predictions.
 
 ---
 
@@ -18,45 +18,50 @@ This project is a Flask-based web application that predicts the winner of an IPL
 ---
 
 ## 📊 Project Overview
-The IPL Match Prediction project uses a machine learning model to predict the winner of an IPL match. The model is trained on historical IPL match data and takes into account features such as:
-- Teams playing (`team1` and `team2`)  
-- Venue of the match  
-- Toss winner and toss decision  
-- Average runs scored by each team in their last 5 matches  
 
-The Flask app provides a user-friendly interface to input match details and displays the predicted winner.
+The IPL Match Predictor is a machine learning project that analyzes match conditions and predicts the winner of an IPL match. It uses:
+- Teams (`team1`, `team2`)
+- Venue of the match
+- Toss winner and toss decision
+- Average runs scored by each team in their last 5 matches
+
+The Flask app provides an interactive interface where users can input match details and receive predictions instantly.
 
 ---
 
 ## ✨ Features
-- **User-Friendly Interface:** A simple web interface to input match details.  
-- **Machine Learning Model:** A pre-trained model to predict the match winner.  
-- **Real-Time Prediction:** Instant prediction results based on user input.  
-- **Dynamic Dropdowns:** Dropdowns for teams, venues, and toss decisions are dynamically populated.  
+
+- **Interactive Web Interface:** User-friendly form to input match data
+- **Real-Time Predictions:** Results are calculated instantly based on input
+- **Pre-Trained Models:** Models trained on IPL data from 2008–2024
+- **Multiple Models Supported:** Gradient Boosting and Random Forest
+- **Jupyter Notebook:** For model building and evaluation
 
 ---
 
 ## 🛠️ Technologies Used
-- **Python:** Primary programming language.  
-- **Flask:** Web framework for building the application.  
-- **Scikit-learn:** Machine learning library for training the model.  
-- **Joblib:** For saving and loading the trained model and encoders.  
-- **HTML/CSS:** For the front-end interface.  
-- **NumPy:** For numerical computations.  
+
+- **Python 3.7+**
+- **Flask** – for web framework  
+- **Scikit-learn** – machine learning  
+- **Pandas, NumPy** – data processing  
+- **HTML/CSS** – front-end UI  
+- **Joblib / Pickle** – model serialization
 
 ---
 
 ## ⚙️ Setup Instructions
-Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
+
 - Python 3.7 or higher  
-- Pip (Python package installer)  
+- pip (Python package installer)
 
 ### Steps
-1. **Clone the Repository:**
+
+1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/ipl-match-prediction.git
+git clone https://github.com/pkala7968/ipl-win-predictor.git
 cd ipl-match-prediction
 ```
 
@@ -118,8 +123,6 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
   "venue": "Wankhede Stadium",
   "toss_winner": "Chennai Super Kings",
   "toss_decision": "bat",
-  "team1_avg_runs_last_5": 160.0,
-  "team2_avg_runs_last_5": 155.0
 }
 ```
 
