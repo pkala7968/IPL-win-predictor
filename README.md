@@ -1,10 +1,10 @@
-# 🏏 IPL Match Prediction Project
+# IPL Match Prediction Project
 
 This project predicts the winner of an Indian Premier League (IPL) match using machine learning models trained on historical data from 2008 to 2024. It includes a Jupyter notebook for model development and a Flask-based web application for real-time predictions.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 1. [Project Overview](#project-overview)  
 2. [Features](#features)  
 3. [Technologies Used](#technologies-used)  
