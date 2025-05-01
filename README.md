@@ -54,7 +54,7 @@ The Flask app provides an interactive interface where users can input match deta
 
 ### Prerequisites
 
-- Python 3.7 or higher  
+- Python 3.9 or higher  
 - pip (Python package installer)
 
 ### Steps
