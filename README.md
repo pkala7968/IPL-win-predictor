@@ -17,7 +17,7 @@ This project predicts the winner of an Indian Premier League (IPL) match using m
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
 The IPL Match Predictor is a machine learning project that analyzes match conditions and predicts the winner of an IPL match. It uses:
 - Teams (`team1`, `team2`)
@@ -29,7 +29,7 @@ The Flask app provides an interactive interface where users can input match deta
 
 ---
 
-## ✨ Features
+## Features
 
 - **Interactive Web Interface:** User-friendly form to input match data
 - **Real-Time Predictions:** Results are calculated instantly based on input
@@ -39,7 +39,7 @@ The Flask app provides an interactive interface where users can input match deta
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Python 3.9+**
 - **Flask** – for web framework  
@@ -50,7 +50,7 @@ The Flask app provides an interactive interface where users can input match deta
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 
@@ -89,7 +89,7 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
 ---
 
-## 🚀 How to Use
+## How to Use
 ### 1. Home Page
 - Open the application in your browser.  
 - You will see a form with dropdowns for teams, venues, and toss decisions.  
@@ -104,7 +104,7 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
 ---
 
-## 🔥 API Endpoints
+## API Endpoints
 ### 1. Home Page
 - **URL:** `/`  
 - **Method:** `GET`  
@@ -135,7 +135,7 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
 ---
 
-## 📈 Future Improvements
+## Future Improvements
 - **Add More Features:** Include additional features like player statistics, weather conditions, and head-to-head records.  
 - **Improve Model Accuracy:** Train the model on a larger and more recent dataset.  
 - **Deploy to Cloud:** Deploy the application to a cloud platform like Heroku or AWS for public access.  
@@ -143,12 +143,12 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
 ---
 
-## 📜 License
+## License
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙌 Acknowledgments
+## Acknowledgments
 - **Dataset:** [Kaggle IPL Dataset](https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020) 
 - **Flask Documentation:** [Flask Official Docs](https://flask.palletsprojects.com/)  
 - **Scikit-learn Documentation:** [Scikit-learn Official Docs](https://scikit-learn.org/)  
