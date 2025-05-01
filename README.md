@@ -149,7 +149,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 ## 🙌 Acknowledgments
-- **Dataset:** Kaggle IPL Dataset  
+- **Dataset:** [Kaggle IPL Dataset](https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020) 
 - **Flask Documentation:** [Flask Official Docs](https://flask.palletsprojects.com/)  
 - **Scikit-learn Documentation:** [Scikit-learn Official Docs](https://scikit-learn.org/)  
-
