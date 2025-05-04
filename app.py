@@ -38,7 +38,7 @@ matches['venue_std'] = matches['venue'].replace(venue_mapping).str.strip()
 valid_venues = sorted(matches['venue_std'].dropna().unique())
 
 # Load model bundle and teams
-bundle = joblib.load('ipl_match_predictor_gb.pkl')
+bundle = joblib.load('ipl_match_predictor.pkl')
 model = bundle['model']
 scaler = bundle['scaler']
 target_encoder = bundle['target_encoder']
