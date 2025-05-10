@@ -20,9 +20,10 @@ body {
 /* Container Style (used in both index and result pages) */
 .container {
     position: relative;
+    width: 90%;
     max-width: 600px;
-    margin: 100px auto;
-    padding: 30px;
+    margin: 60px auto;
+    padding: 20px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -103,4 +104,34 @@ body.bg-image {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    select, input {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    a, button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 15px;
+    }
 }
