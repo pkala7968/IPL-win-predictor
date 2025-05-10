@@ -12,8 +12,9 @@ venue_mapping = {
     "Brabourne Stadium, Mumbai": "Brabourne Stadium",
     "Dr DY Patil Sports Academy, Mumbai": "Dr DY Patil Sports Academy",
     "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam": "Dr YS Rajasekhara Reddy ACA-VDCA Cricket Stadium",
+    "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium": "Dr YS Rajasekhara Reddy ACA-VDCA Cricket Stadium",
     "Eden Gardens, Kolkata": "Eden Gardens",
-    "Himachal Pradesh Cricket Association Stadium": "Himachal Pradesh Cricket Association Stadium",
+    "Himachal Pradesh Cricket Association Stadium": "Himachal Pradesh Cricket Association Stadium, Dharamsala",
     "M Chinnaswamy Stadium, Bengaluru": "M Chinnaswamy Stadium",
     "M.Chinnaswamy Stadium": "M Chinnaswamy Stadium",
     "MA Chidambaram Stadium, Chepauk": "MA Chidambaram Stadium",
@@ -33,6 +34,7 @@ matches = pd.read_csv('IPL data (2008-2024)/matches.csv')
 
 # Standardize venue names
 matches['venue_std'] = matches['venue'].replace(venue_mapping).str.strip()
+matches['venue_std'] = matches['venue_std'].fillna(matches['venue']).str.strip()
 
 # Get unique, sorted, standardized venues for dropdown
 valid_venues = sorted(matches['venue_std'].dropna().unique())
@@ -61,15 +63,13 @@ def home():
                            venues=valid_venues,
                            toss_decisions=allowed_decisions)
 
-# --- Feature Calculation Functions (date-independent, unchanged) ---
-# ... (your feature functions here, unchanged, but use 'venue_std' for venue lookups)
-
+# --- Feature Calculation Functions (date-independent, unchanged) --
 def avg_runs_last_5(team):
     team_matches = matches[(matches['team1'] == team) | (matches['team2'] == team)].head(5)
     if team_matches.empty:
         return 0.5
     # If you use deliveries, ensure correct path and logic
-    return 0.5  # Placeholder if not using deliveries
+    return 0.5  # Placeholder 
 
 def head_to_head_win_pct(team1, team2):
     h2h_matches = matches[((matches['team1'] == team1) & (matches['team2'] == team2)) | 
@@ -151,13 +151,34 @@ def predict():
             data['toss_winner'],
             data['toss_decision']
         )
-        pred = model.predict(features)[0]
-        proba = model.predict_proba(features)[0][pred]
-        confidence = f"{proba * 100:.2f}%"
-        predicted_team = team1 if pred == 1 else team2
+        probas = model.predict_proba(features)[0]
+
+        # Get the encoded labels for team1 and team2
+        team1_encoded = team_mapping[team1]
+        team2_encoded = team_mapping[team2]
+
+        # Compare probabilities
+        team1_proba = probas[team1_encoded]
+        team2_proba = probas[team2_encoded]
+
+       # Normalize so they sum to 1
+        total = team1_proba + team2_proba
+        team1_conf = team1_proba / total
+        team2_conf = team2_proba / total
+
+        if team1_conf > team2_conf:
+            predicted_team = team1
+            confidence = f"{team1_conf * 100:.2f}%"
+        else:
+            predicted_team = team2
+            confidence = f"{team2_conf * 100:.2f}%"
+
+        image_path = f"team_images/{predicted_team}.png"
         return render_template('result.html',
-                             predicted_team=predicted_team,
-                             confidence=confidence)
+                       predicted_team=predicted_team,
+                       confidence=confidence,
+                       image_path=image_path)
+
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
