@@ -2,6 +2,8 @@
 
 This project predicts the winner of an Indian Premier League (IPL) match using machine learning models trained on historical data from 2008 to 2024. It includes a Jupyter notebook for model development and a Flask-based web application for real-time predictions.
 
+🖥️ **Live Demo:** [https://ipl-win-predictor-6h4c.onrender.com](https://ipl-win-predictor-6h4c.onrender.com)
+
 ---
 
 ## Table of Contents
@@ -87,6 +89,10 @@ python app.py
 5. **Access the Application:**
 Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
+6. Or Use the Deployed Version:
+https://ipl-win-predictor-6h4c.onrender.com
+
+
 ---
 
 ## How to Use
@@ -125,6 +131,7 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
   "toss_decision": "bat",
 }
 ```
+![Input Body](static\team_images\Input.png)
 
 #### Response:
 ```json
@@ -132,13 +139,13 @@ Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
   "predicted_winner": "Chennai Super Kings"
 }
 ```
-
+![Output](static\team_images\Output.png)
 ---
 
 ## Future Improvements
 - **Add More Features:** Include additional features like player statistics, weather conditions, and head-to-head records.  
 - **Improve Model Accuracy:** Train the model on a larger and more recent dataset.  
-- **Deploy to Cloud:** Deploy the application to a cloud platform like Heroku or AWS for public access.  
+- **Deploy to Cloud:** Done ✅ [Render App](https://ipl-win-predictor-6h4c.onrender.com)
 - **User Authentication:** Add user authentication to save prediction history.  
 
 ---
