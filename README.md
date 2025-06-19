@@ -131,7 +131,7 @@ https://ipl-win-predictor-6h4c.onrender.com
   "toss_decision": "bat",
 }
 ```
-![Input Body](static\team_images\Input.png)
+![Input Body](static/team_images/Input.png)
 
 #### Response:
 ```json
@@ -139,7 +139,8 @@ https://ipl-win-predictor-6h4c.onrender.com
   "predicted_winner": "Chennai Super Kings"
 }
 ```
-![Output](static\team_images\Output.png)
+![Output](static/team_images/Output.png)
+
 ---
 
 ## Future Improvements
