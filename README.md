@@ -125,9 +125,9 @@ https://ipl-win-predictor-6h4c.onrender.com
 ```json
 {
   "team1": "Chennai Super Kings",
-  "team2": "Mumbai Indians",
-  "venue": "Wankhede Stadium",
-  "toss_winner": "Chennai Super Kings",
+  "team2": "Delhi Capitals",
+  "venue": "Arun Jaitley Stadium",
+  "toss_winner": "Delhi Capitals",
   "toss_decision": "bat",
 }
 ```
@@ -136,7 +136,7 @@ https://ipl-win-predictor-6h4c.onrender.com
 #### Response:
 ```json
 {
-  "predicted_winner": "Chennai Super Kings"
+  "predicted_winner": "Delhi Capitals"
 }
 ```
 ![Output](static/team_images/Output.png)
